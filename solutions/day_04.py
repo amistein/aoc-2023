@@ -1,14 +1,8 @@
 from collections import defaultdict
 
 def part1(data):
-    res = 0
-    
-    for line in data:
-        win_count = get_win_count(line)
-        if win_count > 0:
-          res += 2 ** (win_count - 1)
-
-    return res
+    win_counts = [get_win_count(line) for line in data]
+    return sum([2 ** (win_count - 1) for win_count in win_counts if win_count > 0])
 
 
 def part2(data):
